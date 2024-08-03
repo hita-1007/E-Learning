@@ -1,0 +1,30 @@
+INSERT INTO User (username, password, email, first_name, last_name) SELECT 'johndoe', 'password123', 'johndoe@example.com', 'John', 'Doe' WHERE NOT EXISTS (SELECT 1 FROM User WHERE username = 'johndoe');
+INSERT INTO User (username, password, email, first_name, last_name) SELECT 'janedoe', 'securepassword', 'janedoe@example.com', 'Jane', 'Doe' WHERE NOT EXISTS (SELECT 1 FROM User WHERE username = 'janedoe');
+INSERT INTO User (username, password, email, first_name, last_name) SELECT 'alice', 'alicepass', 'alice@example.com', 'Alice', 'Smith' WHERE NOT EXISTS (SELECT 1 FROM User WHERE username = 'alice');
+INSERT INTO User (username, password, email, first_name, last_name) SELECT 'bob', 'bobpassword', 'bob@example.com', 'Bob', 'Brown' WHERE NOT EXISTS (SELECT 1 FROM User WHERE username = 'bob');
+INSERT INTO User (username, password, email, first_name, last_name) SELECT 'charlie', 'charliepass', 'charlie@example.com', 'Charlie', 'Johnson' WHERE NOT EXISTS (SELECT 1 FROM User WHERE username = 'charlie');
+
+INSERT INTO Author (first_name, last_name) SELECT 'George', 'Orwell' WHERE NOT EXISTS (SELECT 1 FROM Author WHERE first_name = 'George' AND last_name = 'Orwell');
+INSERT INTO Author (first_name, last_name) SELECT 'J.K.', 'Rowling' WHERE NOT EXISTS (SELECT 1 FROM Author WHERE first_name = 'J.K.' AND last_name = 'Rowling');
+INSERT INTO Author (first_name, last_name) SELECT 'J.R.R.', 'Tolkien' WHERE NOT EXISTS (SELECT 1 FROM Author WHERE first_name = 'J.R.R.' AND last_name = 'Tolkien');
+INSERT INTO Author (first_name, last_name) SELECT 'Aldous', 'Huxley' WHERE NOT EXISTS (SELECT 1 FROM Author WHERE first_name = 'Aldous' AND last_name = 'Huxley');
+INSERT INTO Author (first_name, last_name) SELECT 'Isaac', 'Asimov' WHERE NOT EXISTS (SELECT 1 FROM Author WHERE first_name = 'Isaac' AND last_name = 'Asimov');
+INSERT INTO Author (first_name, last_name) SELECT 'Mark', 'Twain' WHERE NOT EXISTS (SELECT 1 FROM Author WHERE first_name = 'Mark' AND last_name = 'Twain');
+INSERT INTO Author (first_name, last_name) SELECT 'Jane', 'Austen' WHERE NOT EXISTS (SELECT 1 FROM Author WHERE first_name = 'Jane' AND last_name = 'Austen');
+INSERT INTO Author (first_name, last_name) SELECT 'Ernest', 'Hemingway' WHERE NOT EXISTS (SELECT 1 FROM Author WHERE first_name = 'Ernest' AND last_name = 'Hemingway');
+INSERT INTO Author (first_name, last_name) SELECT 'F. Scott', 'Fitzgerald' WHERE NOT EXISTS (SELECT 1 FROM Author WHERE first_name = 'F. Scott' AND last_name = 'Fitzgerald');
+INSERT INTO Author (first_name, last_name) SELECT 'Charles', 'Dickens' WHERE NOT EXISTS (SELECT 1 FROM Author WHERE first_name = 'Charles' AND last_name = 'Dickens');
+INSERT INTO Author (first_name, last_name) SELECT 'Leo', 'Tolstoy' WHERE NOT EXISTS (SELECT 1 FROM Author WHERE first_name = 'Leo' AND last_name = 'Tolstoy');
+INSERT INTO Author (first_name, last_name) SELECT 'Stephen', 'King' WHERE NOT EXISTS (SELECT 1 FROM Author WHERE first_name = 'Stephen' AND last_name = 'King');
+INSERT INTO Author (first_name, last_name) SELECT 'Agatha', 'Christie' WHERE NOT EXISTS (SELECT 1 FROM Author WHERE first_name = 'Agatha' AND last_name = 'Christie');
+INSERT INTO Author (first_name, last_name) SELECT 'Abdul', 'Kalam' WHERE NOT EXISTS (SELECT 1 FROM Author WHERE first_name = 'Abdul' AND last_name = 'Kalam');
+INSERT INTO Author (first_name, last_name) SELECT 'William', 'Shakespeare' WHERE NOT EXISTS (SELECT 1 FROM Author WHERE first_name = 'William' AND last_name = 'Shakespeare');
+
+INSERT INTO Category (category_name) SELECT 'Science Fiction' WHERE NOT EXISTS (SELECT 1 FROM Category WHERE category_name = 'Science Fiction');
+INSERT INTO Category (category_name) SELECT 'Fantasy' WHERE NOT EXISTS (SELECT 1 FROM Category WHERE category_name = 'Fantasy');
+INSERT INTO Category (category_name) SELECT 'Mystery' WHERE NOT EXISTS (SELECT 1 FROM Category WHERE category_name = 'Mystery');
+INSERT INTO Category (category_name) SELECT 'Biography' WHERE NOT EXISTS (SELECT 1 FROM Category WHERE category_name = 'Biography');
+INSERT INTO Category (category_name) SELECT 'Historical Fiction' WHERE NOT EXISTS (SELECT 1 FROM Category WHERE category_name = 'Historical Fiction');
+INSERT INTO Category (category_name) SELECT 'Non-Fiction' WHERE NOT EXISTS (SELECT 1 FROM Category WHERE category_name = 'Non-Fiction');
+INSERT INTO Category (category_name) SELECT 'Homework' WHERE NOT EXISTS (SELECT 1 FROM Category WHERE category_name = 'Homework');
+INSERT INTO Category (category_name) SELECT 'Fiction' WHERE NOT EXISTS (SELECT 1 FROM Category WHERE category_name = 'Fiction');
