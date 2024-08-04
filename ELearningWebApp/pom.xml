@@ -46,12 +46,7 @@
 			<scope>runtime</scope>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-core -->
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-core</artifactId>
-			<version>6.3.1</version>
-		</dependency>
+
 
 
 		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
@@ -69,45 +64,12 @@
 		</dependency>
 
 
-		<dependency>
-			<groupId>software.amazon.awssdk</groupId>
-			<artifactId>secretsmanager</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>software.amazon.awssdk</groupId>
-			<artifactId>auth</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>com.amazonaws</groupId>
-			<artifactId>aws-java-sdk-secretsmanager</artifactId>
-			<version>1.12.300</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/software.amazon.awssdk/s3 -->
-		<dependency>
-			<groupId>software.amazon.awssdk</groupId>
-			<artifactId>s3</artifactId>
-			<version>2.26.28</version>
-			<scope>test</scope>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/software.amazon.awssdk/secretsmanager -->
-		<dependency>
-			<groupId>software.amazon.awssdk</groupId>
-			<artifactId>secretsmanager</artifactId>
-			<version>2.26.28</version>
-		</dependency>
-
 		<!-- https://mvnrepository.com/artifact/org.json/json -->
 		<dependency>
 			<groupId>org.json</groupId>
 			<artifactId>json</artifactId>
 			<version>20240303</version>
 		</dependency>
-
-
-
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -128,15 +90,29 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+
+
+
 	</dependencies>
 
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.10.1</version> <!-- Use a compatible version -->
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
 	</build>
+
 
 </project>

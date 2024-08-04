@@ -26,6 +26,7 @@ public class UserService {
     }
 
 
+
     public boolean validateUser(String username, String password) {
         User user = userRepo.findByUsername(username);
         return user != null && password.equals(user.getPassword());
