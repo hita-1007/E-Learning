@@ -36,11 +36,11 @@ public class Book {
     @Temporal(TemporalType.TIMESTAMP)
     private Date uploadedDate;
 
-    @Column(name = "file_url")
-    private String fileUrl;
+    @Column(name = "file_key")
+    private String fileKey;
 
-    @Column(name="image_url")
-    private String imageUrl;
+    @Column(name="image_key")
+    private String imageKey;
 
 //    @Column(name="file_psurl")
 //    private String filePreSignedUrl;

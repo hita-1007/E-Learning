@@ -6,12 +6,14 @@ import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import com.amazonaws.services.s3.model.GeneratePresignedUrlRequest;
+import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.amazonaws.services.s3.model.S3Object;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.Date;
 
@@ -35,19 +37,24 @@ public class S3Service {
                 .build();
     }
 
-    public String uploadFile(File file) {
-        s3Client.putObject(new PutObjectRequest(bucketName, file.getName(), file));
-        return s3Client.getUrl(bucketName, file.getName()).toString();
+    public String uploadFile(String key, InputStream inputStream, long contentLength, String contentType) {
+        ObjectMetadata metadata = new ObjectMetadata();
+        metadata.setContentLength(contentLength);
+        metadata.setContentType(contentType);
+
+        s3Client.putObject(new PutObjectRequest(bucketName, key, inputStream, metadata));
+        return s3Client.getUrl(bucketName, key).toString();
     }
+
 
     public S3Object getObject(String key) {
         return s3Client.getObject(bucketName, key);
     }
 
-    public URL generatePresignedUrl(String key, long expirationInYears) {
+    public URL generatePresignedUrl(String key, long expirationInDays) {
         Date expiration = new Date();
         long expTimeMillis = expiration.getTime();
-        expTimeMillis += expirationInYears * 365L * 24L * 60L * 60L * 1000L; // expirationInYears in milliseconds
+        expTimeMillis += expirationInDays * 24L * 60L * 60L * 1000L; // expirationInDays in milliseconds
         expiration.setTime(expTimeMillis);
 
         GeneratePresignedUrlRequest generatePresignedUrlRequest =
@@ -57,4 +64,5 @@ public class S3Service {
 
         return s3Client.generatePresignedUrl(generatePresignedUrlRequest);
     }
+
 }
